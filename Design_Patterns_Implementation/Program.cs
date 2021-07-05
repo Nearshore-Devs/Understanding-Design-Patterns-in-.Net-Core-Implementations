@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Design_Patterns_Implementation
+namespace NearshoreDevs
 {
     public class Program
     {

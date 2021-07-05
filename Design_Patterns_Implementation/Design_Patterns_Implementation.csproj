@@ -2,11 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>NearshoreDevs</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Application\Entities\" />
+    <Folder Include="Domain\Entities\" />
     <Folder Include="Controllers\V1\" />
+    <Folder Include="Domain\" />
   </ItemGroup>
 
   <ItemGroup>
