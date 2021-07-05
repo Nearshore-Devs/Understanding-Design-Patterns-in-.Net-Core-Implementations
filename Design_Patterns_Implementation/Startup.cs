@@ -26,6 +26,13 @@ namespace Design_Patterns_Implementation
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            //This is requiered for versioning our API
+           // We set default version to 1.0 and we are gonna use it if no specific version is given.
+            services.AddApiVersioning(config =>
+            {
+                config.DefaultApiVersion = new ApiVersion(1, 0);
+                config.AssumeDefaultVersionWhenUnspecified = true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -35,6 +42,8 @@ namespace Design_Patterns_Implementation
             {
                 app.UseDeveloperExceptionPage();
             }
+
+         
 
             app.UseHttpsRedirection();
 
