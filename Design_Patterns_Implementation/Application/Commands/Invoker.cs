@@ -17,7 +17,7 @@ namespace NearshoreDevs.Application.Commands
         private void InitializeCommands(string title, string body, IDictionary<string, string> data)
         {
             _commands.Clear();
-            _commands.Add(NotificationType.Mqtt, new MqttNotificationCommand 
+            _commands.Add(NotificationType.Mqtt, new MqttNotificationCommand (new MqttReceiver())
             { 
                 Body= body,
                 Data= data,
@@ -31,7 +31,7 @@ namespace NearshoreDevs.Application.Commands
                 Title = title
 
             });
-            _commands.Add(NotificationType.SMS, new SMSNotificationCommand
+            _commands.Add(NotificationType.SMS, new SMSNotificationCommand(new SMSReceiver())
             {
                 Body = body,
                 Data = data,
