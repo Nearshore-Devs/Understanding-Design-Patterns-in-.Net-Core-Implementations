@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 
 namespace NearshoreDevs.Application.Commands
 {
-    public class SMSNotificationCommand : INotificationCommand
+    public class SMSNotificationCommand :  BaseNotificationCommand
     {
-        public void Execute(NotificationType type, string title, string body, IDictionary<string, string> extraData)
+        public override void Execute()
         {
-            throw new NotImplementedException();
+            Console.WriteLine('SMS notification');
         }
     }
 }

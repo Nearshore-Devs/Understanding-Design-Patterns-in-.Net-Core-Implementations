@@ -7,8 +7,10 @@ namespace NearshoreDevs.Application.Commands
 {
     public interface INotificationCommand
     {
-        void Execute(NotificationType type, string title, string body, IDictionary<string , string> extraData);
+        void Execute();
     }
+
+
 
 
     public enum NotificationType { Push, SMS, Mqtt};

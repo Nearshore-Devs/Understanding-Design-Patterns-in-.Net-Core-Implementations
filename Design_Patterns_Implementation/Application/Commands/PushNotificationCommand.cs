@@ -5,11 +5,12 @@ using System.Threading.Tasks;
 
 namespace NearshoreDevs.Application.Commands
 {
-    public class PushNotificationCommand : INotificationCommand
+    public class PushNotificationCommand :  BaseNotificationCommand
     {
-        public void Execute(NotificationType type, string title, string body, IDictionary<string, string> extraData)
+       
+        public override void Execute()
         {
-            throw new NotImplementedException();
+            Console.WriteLine('Push notification');
         }
     }
 }
