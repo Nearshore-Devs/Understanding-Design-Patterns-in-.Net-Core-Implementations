@@ -12,10 +12,14 @@ namespace NearshoreDevs.Application.Commands
         {
             _receiver = receiver;
         }
-        public override void Execute()
+        public override void DoSetup()
         {
             _receiver.SetupSMSServer();
-            _receiver.SendSMS(Title = this.Title, Body = this.Body, Data = this.Data);
+        }
+        public override void Execute()
+        {
+            
+            _receiver.SendSMS(Title,  Body,  Data);
         }
     }
 }

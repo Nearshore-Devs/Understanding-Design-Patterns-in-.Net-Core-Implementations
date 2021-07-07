@@ -10,7 +10,11 @@ namespace NearshoreDevs.Application.Commands
        
         public override void Execute()
         {
-            Console.WriteLine('Push notification');
+            Console.WriteLine("Push notification");
+        }
+        public override void DoSetup()
+        {
+            Console.WriteLine("Push notification");
         }
     }
 }

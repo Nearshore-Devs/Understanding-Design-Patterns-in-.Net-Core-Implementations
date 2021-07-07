@@ -11,6 +11,7 @@ namespace NearshoreDevs.Application.Commands
         {
             Console.WriteLine("SMS server activated");
         }
+        
         public void SendSMS(string title, string body, IDictionary<string, string> data)
         {
             Console.WriteLine($"SMS notification sent: {title} - {body} , data arguments: {data.Count}");

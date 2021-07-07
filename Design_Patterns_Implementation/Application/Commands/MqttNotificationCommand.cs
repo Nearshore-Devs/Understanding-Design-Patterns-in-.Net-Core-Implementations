@@ -14,9 +14,13 @@ namespace NearshoreDevs.Application.Commands
         }
         public override void Execute()
         {
-            _receiver.SetupServer();
-            _receiver.SendMessage(Title = this.Title, Body = this.Body);
+          
+            _receiver.SendMessage(Title = Title, Body = Body);
 
+        }
+        public override void DoSetup()
+        {
+            _receiver.SetupServer();
         }
     }
 }

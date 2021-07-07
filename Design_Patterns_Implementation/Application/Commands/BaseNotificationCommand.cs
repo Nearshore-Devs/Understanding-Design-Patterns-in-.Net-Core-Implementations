@@ -10,6 +10,10 @@ namespace NearshoreDevs.Application.Commands
         public string Title { get; set; }
         public string Body { get; set; }
         public IDictionary<string, string> Data { get; set; }
+
+        public abstract void DoSetup();
+        
+
         public abstract void Execute();
        
     }

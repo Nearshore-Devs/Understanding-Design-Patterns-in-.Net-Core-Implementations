@@ -5,9 +5,14 @@ using System.Threading.Tasks;
 
 namespace NearshoreDevs.Application.Commands
 {
-    public interface INotificationCommand
+    public interface INotificationCommand: ICommand
     {
-        void Execute();
+        void DoSetup();
+
+        public string Title { get; set; }
+        public string Body { get; set; }
+        public IDictionary<string, string> Data { get; set; }
+
     }
 
 
