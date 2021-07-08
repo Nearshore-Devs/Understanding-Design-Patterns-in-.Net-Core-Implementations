@@ -5,17 +5,17 @@ using System.Threading.Tasks;
 
 namespace NearshoreDevs.Application.Chain
 {
-    public class ClaimAuthorizer3 : Authorizer
+    public class LGShop: BaseRepairShop
     {
-        public override void ProcessClaim(IClaim claim)
+        public override void RepairTV(TVBrand brand)
         {
-            if (claim.Amount >= 1000 )
+            if (brand == TVBrand.Sony)
             {
-                Console.WriteLine("Claim amount is above 10000");
+                Console.WriteLine("TV repaired by LG  center");
             }
             else if (_successor != null)
             {
-                _successor.ProcessClaim(claim);
+                _successor.RepairTV(brand);
             }
         }
     }

@@ -5,9 +5,11 @@ using System.Threading.Tasks;
 
 namespace NearshoreDevs.Application.Chain
 {
-    public interface IClaim
+    public interface IRepairShop
     {
-       
-        float Amount { get; }
+        void RepairTV(TVBrand brand);
     }
+
+
+    public enum TVBrand { Sony, Daewoo, LG};
 }
