@@ -2,10 +2,17 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using NearshoreDevs.Application.CQRS;
+using NearshoreDevs.Application.CQRS.Handlers.Commands;
+using NearshoreDevs.Application.CQRS.Handlers.Queries;
+using NearshoreDevs.Application.CQRS.Interfaces;
+using NearshoreDevs.Application.CQRS.Interfaces.Queries;
+using NearshoreDevs.Controllers.V1;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,8 +33,18 @@ namespace NearshoreDevs
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddDbContext<CustomerDbContext>(options =>
+            {
+                options.UseInMemoryDatabase(databaseName: "Test");
+            });
+
+            services.AddScoped<ISaveCustomerCommandHandler, SaveCustomerCommandHandler>();
+            services.AddScoped<IGetAllCustomerQueryHandler, GetAllCustomersQueryHandler>();
+
+
+            services.AddScoped<IGetCustomerByIdQueryHandler, GetCustomerByIdCommandHandler>();
             //This is requiered for versioning our API
-           // We set default version to 1.0 and we are gonna use it if no specific version is given.
+            // We set default version to 1.0 and we are gonna use it if no specific version is given.
             services.AddApiVersioning(config =>
             {
                 config.DefaultApiVersion = new ApiVersion(1, 0);
