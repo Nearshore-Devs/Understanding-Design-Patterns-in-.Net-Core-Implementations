@@ -7,14 +7,11 @@ namespace NearshoreDevs.Application.State
 {
     public class AcceptedState:IState
     {
-        
 
-        public AcceptedState()
-        {
-          
-        }
 
-        
+        public string StateName => "Accepted";
+
+
         public void ProcessOrder(DeliveryContext context)
         {
             Console.WriteLine("Order has been accepted");

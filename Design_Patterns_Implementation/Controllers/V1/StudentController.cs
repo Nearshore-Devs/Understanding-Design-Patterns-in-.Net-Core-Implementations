@@ -9,16 +9,18 @@ using System.Threading.Tasks;
 
 namespace NearshoreDevs.Controllers.V1
 {
+    [ApiController]
+    [Route("api/[controller]")]
     public class StudentController : Controller
     {
         private readonly ISaveStudentCommandHandler _saveStudentCommandHandler;
         private readonly IGetAllStudentsQueryHandler _getAllStudentQueryHandler;
-        private readonly IStudentIdQueryHandler _studentIdQueryHandler;
+        private readonly IGetStudentByIdQueryHandler _studentIdQueryHandler;
 
         public StudentController(
             ISaveStudentCommandHandler saveStudentCommandHandler,
             IGetAllStudentsQueryHandler allStudentQueryHandler,
-            IStudentIdQueryHandler studentIdQueryHandler)
+            IGetStudentByIdQueryHandler studentIdQueryHandler)
         {
             _saveStudentCommandHandler = saveStudentCommandHandler;
             _getAllStudentQueryHandler = allStudentQueryHandler;
@@ -56,7 +58,7 @@ namespace NearshoreDevs.Controllers.V1
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetStudentAsync(StudentIdQueryRequestModel model)
+        public async Task<IActionResult> GetStudent(StudentIdQueryRequestModel model)
         {
             try
             {
@@ -74,4 +76,4 @@ namespace NearshoreDevs.Controllers.V1
         }
     }
 }
-}
+

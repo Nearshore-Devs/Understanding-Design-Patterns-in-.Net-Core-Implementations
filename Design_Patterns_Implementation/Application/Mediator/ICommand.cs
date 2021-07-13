@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace NearshoreDevs.Application.Mediator
 {
-    public class ICommand
+    public interface ICommand
     {
         void Land();
     }

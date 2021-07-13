@@ -14,6 +14,8 @@ namespace NearshoreDevs.Application.State
           
         }
 
+        public string StateName => "Delivered";
+
         public void ProcessOrder(DeliveryContext context)
         {
             Console.WriteLine("Order has been delivered");

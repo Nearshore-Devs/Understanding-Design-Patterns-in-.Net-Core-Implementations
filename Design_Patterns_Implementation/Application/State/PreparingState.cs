@@ -7,7 +7,7 @@ namespace NearshoreDevs.Application.State
 {
     public class PreparingState : IState
     {
-       
+        public string StateName => "Preparing";
         public void ProcessOrder(DeliveryContext context)
         {
             Console.WriteLine("Order is being prepared");

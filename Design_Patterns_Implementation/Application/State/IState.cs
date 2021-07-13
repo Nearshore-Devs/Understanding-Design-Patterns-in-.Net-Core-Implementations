@@ -7,7 +7,7 @@ namespace NearshoreDevs.Application.State
 {
     public interface IState
     {
-
+        string StateName { get; }
         void ProcessOrder(DeliveryContext context);
      }
 }

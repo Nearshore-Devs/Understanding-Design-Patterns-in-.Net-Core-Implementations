@@ -8,11 +8,8 @@ namespace NearshoreDevs.Application.State
     public class OutForDeliveringState:IState
     {
       
-        public OutForDeliveringState()
-        {
-           
-        }
-
+        
+        public string StateName => "Out for delivering";
         public void ProcessOrder(DeliveryContext context)
         {
             Console.WriteLine("Order is out for delivering");

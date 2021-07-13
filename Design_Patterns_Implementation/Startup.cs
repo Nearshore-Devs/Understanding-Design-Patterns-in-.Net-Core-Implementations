@@ -7,11 +7,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using NearshoreDevs.Application;
 using NearshoreDevs.Application.CQRS;
 using NearshoreDevs.Application.CQRS.Handlers.Commands;
 using NearshoreDevs.Application.CQRS.Handlers.Queries;
 using NearshoreDevs.Application.CQRS.Interfaces;
 using NearshoreDevs.Application.CQRS.Interfaces.Queries;
+using NearshoreDevs.Application.State;
 using NearshoreDevs.Controllers.V1;
 using System;
 using System.Collections.Generic;
@@ -38,7 +40,7 @@ namespace NearshoreDevs
                 options.UseInMemoryDatabase(databaseName: "Test");
             });
 
-          
+            SetupDI(services);
             //This is requiered for versioning our API
             // We set default version to 1.0 and we are gonna use it if no specific version is given.
             services.AddApiVersioning(config =>
@@ -49,10 +51,9 @@ namespace NearshoreDevs
         }
         private void SetupDI(IServiceCollection services)
         {
+            services.AddSingleton<OrdersDataStore>(new OrdersDataStore());
             services.AddScoped<ISaveStudentCommandHandler, SaveStudentCommandHandler>();
             services.AddScoped<IGetAllStudentsQueryHandler, GetAllStudentsQueryHandler>();
-
-
             services.AddScoped<IGetStudentByIdQueryHandler, GetStudentByIdCommandHandler>();
 
         }
@@ -64,9 +65,6 @@ namespace NearshoreDevs
             {
                 app.UseDeveloperExceptionPage();
             }
-
-         
-
             app.UseHttpsRedirection();
 
             app.UseRouting();

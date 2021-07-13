@@ -9,6 +9,7 @@ namespace NearshoreDevs.Application.State
     {
         Order _order;
         IState _currentState;
+        IState _previousState;
         public DeliveryContext(IState state, Order order)
         {
             _order = order;
@@ -16,12 +17,13 @@ namespace NearshoreDevs.Application.State
             if (_currentState == null)
             {
                 _currentState = new AcceptedState();
+                _previousState = _currentState;
             }
            
         }
         public string OrderId => _order.OrderId;
 
-        public IState CurrentState => _currentState;
+        public IState CurrentState => _previousState;
 
         public void SetCurrentState(IState state)
         {
@@ -31,6 +33,7 @@ namespace NearshoreDevs.Application.State
 
         public void UpdateOrderStatus()
         {
+            _previousState = _currentState;
             _currentState.ProcessOrder(this);
         }
     }

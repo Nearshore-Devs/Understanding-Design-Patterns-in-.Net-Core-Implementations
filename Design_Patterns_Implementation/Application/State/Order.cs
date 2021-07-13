@@ -7,9 +7,11 @@ namespace NearshoreDevs.Application.State
 {
     public class Order
     {
-        Guid _orderId = new Guid();
+        Guid _orderId = Guid.NewGuid();
+       
+        
         public string OrderId => _orderId.ToString();
-        public string MealName { get; set; }
+        public string FoodName { get; set; }
 
        
     }
