@@ -5,7 +5,9 @@ using System.Threading.Tasks;
 
 namespace NearshoreDevs.Application.State
 {
-    public class IState
+    public interface IState
     {
-    }
+
+        void ProcessOrder(DeliveryContext context);
+     }
 }
