@@ -38,11 +38,7 @@ namespace NearshoreDevs
                 options.UseInMemoryDatabase(databaseName: "Test");
             });
 
-            services.AddScoped<ISaveStudentCommandHandler, SaveStudentCommandHandler>();
-            services.AddScoped<IGetAllStudentsQueryHandler, GetAllStudentsQueryHandler>();
-
-
-            services.AddScoped<IGetStudentByIdQueryHandler, GetCustomerByIdCommandHandler>();
+          
             //This is requiered for versioning our API
             // We set default version to 1.0 and we are gonna use it if no specific version is given.
             services.AddApiVersioning(config =>
@@ -50,6 +46,15 @@ namespace NearshoreDevs
                 config.DefaultApiVersion = new ApiVersion(1, 0);
                 config.AssumeDefaultVersionWhenUnspecified = true;
             });
+        }
+        private void SetupDI(IServiceCollection services)
+        {
+            services.AddScoped<ISaveStudentCommandHandler, SaveStudentCommandHandler>();
+            services.AddScoped<IGetAllStudentsQueryHandler, GetAllStudentsQueryHandler>();
+
+
+            services.AddScoped<IGetStudentByIdQueryHandler, GetStudentByIdCommandHandler>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
