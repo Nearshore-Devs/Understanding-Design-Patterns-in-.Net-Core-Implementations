@@ -9,16 +9,16 @@ using NearshoreDevs.Application.CQRS.Interfaces.Queries;
 
 namespace NearshoreDevs.Application.CQRS.Handlers.Queries
 {
-    public class GetCustomerByIdCommandHandler: IGetCustomerByIdQueryHandler
+    public class GetCustomerByIdCommandHandler: IGetStudentByIdQueryHandler
     {
-        private readonly CustomerDbContext context;
-        public GetCustomerByIdCommandHandler(CustomerDbContext context)
+        private readonly StudentsDBContext context;
+        public GetCustomerByIdCommandHandler(StudentsDBContext context)
         {
             this.context = context;
         }
-        public async Task<CustomerIdQueryResponseModel> GetCustomerAsync(CustomerIdQueryRequestModel requestModel)
+        public async Task<CustomerIdQueryResponseModel> GetStudentAsync(StudentIdQueryRequestModel requestModel)
         {
-            var result =  await this.context.Customers.Where(p => p.Id == requestModel.CustomerId)
+            var result =  await this.context.Students.Where(p => p.Id == requestModel.StudentId)
                 .FirstOrDefaultAsync();
                        
 

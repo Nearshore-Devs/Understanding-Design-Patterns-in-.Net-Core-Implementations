@@ -33,16 +33,16 @@ namespace NearshoreDevs
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<CustomerDbContext>(options =>
+            services.AddDbContext<StudentsDBContext>(options =>
             {
                 options.UseInMemoryDatabase(databaseName: "Test");
             });
 
-            services.AddScoped<ISaveCustomerCommandHandler, SaveCustomerCommandHandler>();
-            services.AddScoped<IGetAllCustomerQueryHandler, GetAllCustomersQueryHandler>();
+            services.AddScoped<ISaveStudentCommandHandler, SaveStudentCommandHandler>();
+            services.AddScoped<IGetAllStudentsQueryHandler, GetAllStudentsQueryHandler>();
 
 
-            services.AddScoped<IGetCustomerByIdQueryHandler, GetCustomerByIdCommandHandler>();
+            services.AddScoped<IGetStudentByIdQueryHandler, GetCustomerByIdCommandHandler>();
             //This is requiered for versioning our API
             // We set default version to 1.0 and we are gonna use it if no specific version is given.
             services.AddApiVersioning(config =>

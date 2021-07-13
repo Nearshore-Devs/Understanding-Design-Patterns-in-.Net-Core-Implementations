@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace NearshoreDevs.Application.CQRS.Interfaces
 {
-    public interface ISaveCustomerCommandHandler
+    public interface ISaveStudentCommandHandler
     {
-        Task<int> SaveAsync(SaveCustomerRequestModel saveCustomerRequestModel);
+        Task<int> SaveAsync(SaveStudentRequestModel saveStudentRequestModel);
     }
 }

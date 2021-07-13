@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NearshoreDevs.Application.CQRS.Model
 {
-    public class Invoice
+    public class Course
     {
         public int Id { get; set; }
         public DateTime Date { get; set; }
@@ -14,7 +14,7 @@ namespace NearshoreDevs.Application.CQRS.Model
         public int CustomerId { get; set; }
 
         [ForeignKey("CustomerId")]
-        public virtual Customer Customer { get; set; }
+        public virtual Student Customer { get; set; }
        
     }
 }

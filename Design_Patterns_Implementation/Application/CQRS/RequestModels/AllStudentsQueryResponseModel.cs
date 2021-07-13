@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace NearshoreDevs.Application.CQRS.RequestModels
 {
-    public class AllCustomerQueryResponseModel
+    public class AllStudentsQueryResponseModel
     {
-        public int CustomerId { get; set; }
+        public int StudentId { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
-        public IList<Invoice> Invoices { get; set; }
+        public IList<Course> Courses { get; set; }
     }
 }

@@ -7,27 +7,27 @@ using System.Threading.Tasks;
 
 namespace NearshoreDevs.Application.CQRS.Handlers.Commands
 {
-    public class SaveCustomerCommandHandler : ISaveCustomerCommandHandler
+    public class SaveStudentCommandHandler : ISaveStudentCommandHandler
     {
-        private readonly CustomerDbContext context;
+        private readonly StudentsDBContext context;
 
-        public SaveCustomerCommandHandler(CustomerDbContext context)
+        public SaveStudentCommandHandler(StudentsDBContext context)
         {
             this.context = context;
         }
-        public async Task<int> SaveAsync(SaveCustomerRequestModel saveCustomerRequestModel)
+        public async Task<int> SaveAsync(SaveStudentRequestModel saveCustomerRequestModel)
         {
-            var newCustomer = new Customer
+            var newStudent = new Student
             {
                 Name = saveCustomerRequestModel.Name,
                 Title = saveCustomerRequestModel.Title,
                 Address = saveCustomerRequestModel.Address,
-                Invoices = saveCustomerRequestModel.Invoices
+                Courses = saveCustomerRequestModel.Courses
             };
 
-            context.Customers.Add(newCustomer);
+            context.Students.Add(newStudent);
             await this.context.SaveChangesAsync();
-            return newCustomer.Id;
+            return newStudent.Id;
         }
     }
 }

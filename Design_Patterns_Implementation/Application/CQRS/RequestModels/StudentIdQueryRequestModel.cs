@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace NearshoreDevs.Application.CQRS.RequestModels
 {
-    public class CustomerIdQueryRequestModel
+    public class StudentIdQueryRequestModel
     {
-        public int CustomerId { get; set; }
+        public int StudentId { get; set; }
     }
 }

@@ -8,22 +8,22 @@ using System.Threading.Tasks;
 
 namespace NearshoreDevs.Application.CQRS.Handlers.Queries
 {
-    public class GetAllCustomersQueryHandler: IGetAllCustomerQueryHandler
+    public class GetAllStudentsQueryHandler: IGetAllStudentsQueryHandler
     {
-        private readonly CustomerDbContext context;
+        private readonly StudentsDBContext context;
 
-        public GetAllCustomersQueryHandler(CustomerDbContext context)
+        public GetAllStudentsQueryHandler(StudentsDBContext context)
         {
             this.context = context;
         }
-        public async Task<IList<AllCustomerQueryResponseModel>> GetAllAsync()
+        public async Task<IList<AllStudentsQueryResponseModel>> GetAllAsync()
         {
-            return await this.context.Customers.Select(s => new AllCustomerQueryResponseModel
+            return await this.context.Students.Select(s => new AllStudentsQueryResponseModel
             {
-                CustomerId = s.Id,
+                StudentId = s.Id,
                 Name = $"{s.Title}.{s.Name }",
                 Address = s.Address,
-                Invoices = s.Invoices
+                Courses = s.Courses
             }).ToListAsync();
         }
     }

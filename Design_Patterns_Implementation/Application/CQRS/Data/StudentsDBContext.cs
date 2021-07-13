@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace NearshoreDevs.Application.CQRS
 {
-    public class CustomerDbContext : DbContext
+    public class StudentsDBContext : DbContext
     {
-        public CustomerDbContext(DbContextOptions<CustomerDbContext> options)
+        public StudentsDBContext(DbContextOptions<StudentsDBContext> options)
             :base(options)
         {
 
         }
 
-        public DbSet<Customer> Customers { get; set; }
-        public DbSet<Invoice> Invoices { get; set; }
+        public DbSet<Student> Students { get; set; }
+        public DbSet<Course> Courses { get; set; }
     }
 }

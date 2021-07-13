@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace NearshoreDevs.Application.CQRS.Interfaces.Queries
 {
-    public interface IGetAllCustomerQueryHandler
+    public interface IGetAllStudentsQueryHandler
     {
-        Task<IList<AllCustomerQueryResponseModel>> GetAllAsync();
+        Task<IList<AllStudentsQueryResponseModel>> GetAllAsync();
     }
 }

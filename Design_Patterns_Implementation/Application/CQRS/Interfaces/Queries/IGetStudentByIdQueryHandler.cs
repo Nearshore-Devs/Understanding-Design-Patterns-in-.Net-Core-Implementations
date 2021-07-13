@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace NearshoreDevs.Application.CQRS.Interfaces.Queries
 {
-    public interface IGetCustomerByIdQueryHandler
+    public interface IGetStudentByIdQueryHandler
     {
-        Task<CustomerIdQueryResponseModel> GetCustomerAsync(CustomerIdQueryRequestModel requestModel);
+        Task<StudentIdQueryResponseModel> GetStudentAsync(StudentIdQueryRequestModel requestModel);
     }
 }
