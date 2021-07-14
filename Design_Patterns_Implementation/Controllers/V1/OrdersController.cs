@@ -41,5 +41,19 @@ namespace NearshoreDevs.Controllers.V1
             return NotFound("Order Id does not exist!");
 
         }
+
+        [HttpGet("{id}")]
+        public IActionResult ChangeOrderStatus(string id)
+        {
+            var context = _store.GetOrderDeliveryContext(id);
+            if (context != null)
+            {
+                context.UpdateOrderStatus();
+
+                return Ok(context.CurrentState.StateName);
+            }
+            return NotFound("Order Id does not exist!");
+
+        }
     }
 }
