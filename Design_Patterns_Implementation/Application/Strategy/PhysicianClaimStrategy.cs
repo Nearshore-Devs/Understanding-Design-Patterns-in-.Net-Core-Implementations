@@ -7,9 +7,13 @@ namespace NearshoreDevs.Application.Strategy
 {
     public class PhysicianClaimStrategy : IStrategy
     {
-        public void ProcessClaim(IClaim claim)
+        public Claim ProcessClaim(Claim claim)
         {
-            Console.WriteLine($"Physician Strategy, calculated amount: ${claim.Amount*10} ");
+            var amount = 0.0;
+            amount = claim.Details.Sum(d => d.Price * d.Quantity);
+            claim.Date = DateTime.Now;
+            Console.WriteLine($"Physician Strategy, calculated amount ${amount } ");
+            return claim;
         }
     }
 }

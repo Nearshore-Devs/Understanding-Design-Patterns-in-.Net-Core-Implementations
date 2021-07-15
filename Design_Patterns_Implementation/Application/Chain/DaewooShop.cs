@@ -7,16 +7,24 @@ namespace NearshoreDevs.Application.Chain
 {
     public class DaewooShop : BaseRepairShop
     {
-        public override void RepairTV(TVBrand brand)
+        public override string  RepairTV(string brandName, string errorDescription)
         {
-            if (brand == TVBrand.Sony)
+            
+            if (brandName.Contains("daewoo", StringComparison.InvariantCultureIgnoreCase))
             {
-                Console.WriteLine("TV repaired by Daewoo  center");
+                 message = "TV repaired by Daewoo  center";
+                Console.WriteLine(message);
+                
             }
             else if (_successor != null)
             {
-                _successor.RepairTV(brand);
+                message= _successor.RepairTV(brandName, errorDescription);
             }
+            else
+            {
+                message = "The brand is invalid or not supported for the existing shops";
+            }
+            return message;
         }
     }
 }

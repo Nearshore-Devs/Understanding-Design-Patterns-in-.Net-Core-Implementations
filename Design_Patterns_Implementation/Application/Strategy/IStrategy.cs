@@ -7,6 +7,6 @@ namespace NearshoreDevs.Application.Strategy
 {
     public interface IStrategy
     {
-        public void ProcessClaim(IClaim claim);
+        public Claim ProcessClaim(Claim claim);
     }
 }

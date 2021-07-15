@@ -5,11 +5,9 @@ using System.Threading.Tasks;
 
 namespace NearshoreDevs.Application.Chain
 {
-    public interface IRepairShop
+    public class TVRepairViewModel
     {
-        string RepairTV(string brandName, string errorDescription);
+        public string BrandName { get; set; }
+        public string ErrorDescription { get; set; }
     }
-
-
-    
 }

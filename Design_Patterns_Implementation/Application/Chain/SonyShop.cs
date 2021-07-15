@@ -7,16 +7,18 @@ namespace NearshoreDevs.Application.Chain
 {
     public class SonyShop : BaseRepairShop
     {
-        public override void RepairTV(TVBrand brand)
+        public override string RepairTV(string brandName, string errorDescription)
         {
-           if(brand== TVBrand.Sony)
+           if(brandName.Contains("sony", StringComparison.InvariantCultureIgnoreCase))
             {
+                message = "TV repaired by sony  center";
                 Console.WriteLine("TV repaired by sony  center");
             }
             else if (_successor != null)
             {
-                _successor.RepairTV(brand);
+                message= _successor.RepairTV(brandName, errorDescription);
             }
+            return message;
         }
     }
 }

@@ -5,10 +5,26 @@ using System.Threading.Tasks;
 
 namespace NearshoreDevs.Application.Strategy
 {
-    public interface IClaim
+    public class Claim
+
     {
-        public ClaimType Type { get; }
-        public float Amount { get; }
+        public int Id { get; set; }
+        public DateTime Date { get; set; }
+        /// <summary>
+        /// National Provider Identification
+        /// </summary>
+        public string NPI { get; set; }
+        /// <summary>
+        /// Internal Control Number
+        /// </summary>
+        public string ICN { get; set; }
+       
+       
+        public string Description { get; set; }
+        public float AllowedAmount { get; set; }
+
+        public IList<ClaimDetail> Details { get; set; }
+        public Provider  Provider { get; set; }
     }
-    public enum ClaimType { Pharmacy, Dental, Physician};
+    
 }

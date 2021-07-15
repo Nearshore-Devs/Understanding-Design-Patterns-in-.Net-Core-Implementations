@@ -42,7 +42,7 @@ namespace NearshoreDevs.Controllers.V1
 
         }
 
-        [HttpGet("{id}")]
+        [HttpPut("{id}")]
         public IActionResult ChangeOrderStatus(string id)
         {
             var context = _store.GetOrderDeliveryContext(id);
